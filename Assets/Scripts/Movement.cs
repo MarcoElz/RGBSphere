@@ -2,16 +2,25 @@
 
 public class Movement : MonoBehaviour 
 {
-    private float speed = 8.0f;
-    private float smooth = 0.5f;
+    //Variables for movement
+    private float speed;
+    private float smooth;
 
     private Vector3 zeroAc;
     private Vector3 curAc;
 
-    private float GetAxisH = 0;
-    private float sensH = 1;
+    private float GetAxisH;
+    private float sensH;
 
+    void Awake()
+    {
+        speed = 8.0f;
+        smooth = 0.5f;
+        GetAxisH = 0;
+        sensH = 1;
+    }
 
+    //PlayerMovement
     void FixedUpdate()
     {
         //get input by accelerometer
@@ -25,8 +34,10 @@ public class Movement : MonoBehaviour
         Vector3 movement = Vector3.right * Input.GetAxis("Horizontal");
         #endif
 
-        this.transform.Translate(movement * speed * Time.deltaTime);
+        //The movement
+        this.transform.Translate(movement * speed * Time.deltaTime); 
 
+        //Clamp position
         Vector3 pos = this.transform.position;
         Vector3 clampedPos = new Vector3(
             Mathf.Clamp(pos.x, -1.2f, 1.3f),

@@ -2,13 +2,14 @@
 
 public class Map : MonoBehaviour {
 
-    private static float speed = 4.0f;
+    private static float speed; //The speed of the map
 
-    void Start()
+    void Awake()
     {
         speed = 4.0f;
     }
 
+    //Move everything
     void FixedUpdate()
     {
         transform.Translate(Vector3.back * speed * Time.deltaTime);
