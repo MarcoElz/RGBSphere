@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Road : MonoBehaviour {
+public class Road : CallsBoxManaged {
 
     //Cachce variables
     private Vector3 restartPosition; //The restart position of this object
@@ -16,7 +16,7 @@ public class Road : MonoBehaviour {
     }
 
     //Check for z position to vanish
-	void FixedUpdate () 
+    public override void ManagedFixedUpdate()
     {
         if (this.transform.position.z < vanishZ)
             Vanish();

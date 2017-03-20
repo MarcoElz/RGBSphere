@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Map : MonoBehaviour {
+public class Map : CallsBoxManaged {
 
     private static float speed; //The speed of the map
 
@@ -10,7 +10,7 @@ public class Map : MonoBehaviour {
     }
 
     //Move everything
-    void FixedUpdate()
+    public override void ManagedFixedUpdate()
     {
         transform.Translate(Vector3.back * speed * Time.deltaTime);
         speed += Time.deltaTime / 20;

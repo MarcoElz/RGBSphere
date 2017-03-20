@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Movement : MonoBehaviour 
+public class Movement : CallsBoxManaged 
 {
     //Variables for movement
     private float speed;
@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
     }
 
     //PlayerMovement
-    void FixedUpdate()
+    public override void ManagedFixedUpdate()
     {
         //get input by accelerometer
         #if !UNITY_EDITOR
